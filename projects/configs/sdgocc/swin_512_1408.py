@@ -123,7 +123,7 @@ model = dict(
 
 # Data
 dataset_type = 'NuScenesDatasetOccpancy'
-data_root = '/media/aiboy/DeepLearn/dataset/nuscenes/'
+data_root = './data/nuscenes/'
 file_client_args = dict(backend='disk')
 
 bda_aug_conf = dict(
@@ -255,7 +255,7 @@ custom_hooks = [
     ),
 ]
 
-load_from = "/media/aiboy/DeepLearn/FlashOCC-master/ckpts/bevdet-stbase-4d-stereo-512x1408-cbgs.pth"
+load_from = "./ckpts/bevdet-stbase-4d-stereo-512x1408-cbgs.pth"
 # fp16 = dict(loss_scale='dynamic')
 evaluation = dict(interval=1, start=1, pipeline=test_pipeline,save_best='mIoU',rule='greater',)
 # evaluation = dict(interval=1, start=20, pipeline=test_pipeline)

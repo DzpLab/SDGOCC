@@ -3,6 +3,7 @@ import argparse
 import time
 import os
 import sys
+from pathlib import Path
 import torch
 from mmcv import Config
 from mmcv.parallel import MMDataParallel
@@ -12,8 +13,9 @@ from mmdet3d.datasets import build_dataloader, build_dataset
 from mmdet3d.models import build_detector
 from tools.misc.fuse_conv_bn import fuse_module
 
-sys.path.insert(0, '/home/zichen/Documents/Project/BEV/Custom/BEVDet')
-print(sys.path)
+repo_root = Path(__file__).resolve().parents[2]
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='MMDet benchmark a model')

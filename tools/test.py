@@ -36,8 +36,8 @@ except ImportError:
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMDet test (and eval) a model')
-    parser.add_argument('--config',default="/media/wj-hust/deeplearning/dzp/SDG_OCC/projects/configs/sdgocc/sdgocc-r50_4.py", help='test config file path')
-    parser.add_argument('--checkpoint',default="/media/wj-hust/deeplearning/dzp/SDG_OCC/work_dir/r50_fuse/epoch_36_ema.pth", help='checkpoint file')
+    parser.add_argument('--config',default="projects/configs/sdgocc/sdgocc-r50_4.py", help='test config file path')
+    parser.add_argument('--checkpoint',default="./ckpts/best_iou_635_4.pth", help='checkpoint file')
     parser.add_argument('--out', help='output result file in pickle format')
     parser.add_argument(
         '--fuse-conv-bn',
@@ -53,7 +53,7 @@ def parse_args():
     parser.add_argument(
         '--gpu-id',
         type=int,
-        default=1,
+        default=0,
         help='id of gpu to use '
         '(only applicable to non-distributed testing)')
     parser.add_argument(
@@ -71,7 +71,7 @@ def parse_args():
         ' "segm", "proposal" for COCO, and "mAP", "recall" for PASCAL VOC')
     parser.add_argument('--show', action='store_true', help='show results')
     parser.add_argument(
-        '--show-dir',default="/media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN/show/4d_align", help='directory where results will be saved')
+        '--show-dir',default="./work_dirs/show", help='directory where results will be saved')
     parser.add_argument(
         '--gpu-collect',
         action='store_true',

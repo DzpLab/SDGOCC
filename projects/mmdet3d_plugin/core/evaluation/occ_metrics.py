@@ -9,7 +9,6 @@ import torch
 import sys, platform
 from sklearn.neighbors import KDTree
 from termcolor import colored
-from pathlib import Path
 from copy import deepcopy
 from functools import reduce
 
@@ -159,7 +158,9 @@ class Metric_mIoU():
         # assert cnt == num_samples, 'some samples are not included in the miou calculation'
         print(f'===> per class IoU of {self.cnt} samples:')
         result=np.vstack(self.iou)
-        np.save('/media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN/ours_iou.npy',result)
+        save_path = Path(self.save_dir) / 'ours_iou.npy'
+        save_path.parent.mkdir(parents=True, exist_ok=True)
+        np.save(save_path, result)
         for ind_class in range(self.num_classes-1):
             print(f'===> {self.class_names[ind_class]} - IoU = ' + str(round(mIoU[ind_class] * 100, 2)))
 

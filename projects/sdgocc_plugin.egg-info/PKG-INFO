@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: flashocc-plugin
+Name: sdgocc_plugin
 Version: 0.0.0
 Summary: OpenMMLab's next-generation platformfor general 3D object detection.
 Home-page: https://github.com/open-mmlab/mmdetection3d
@@ -7,7 +7,6 @@ Author: MMDetection3D Contributors
 Author-email: zwwdev@gmail.com
 License: Apache License 2.0
 Keywords: computer vision,3D object detection
-Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Operating System :: OS Independent
@@ -15,6 +14,3 @@ Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Description-Content-Type: text/markdown
-
-UNKNOWN
-

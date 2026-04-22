@@ -89,7 +89,7 @@ model = dict(
         min_volume_space=[-40, -40, -1],
         lambda_lovasz=1,
         # pretrained=None,),
-        pretrained="/media/wj-hust/deeplearning/dzp/SADA_OCC_2/pretrain/best_iou_635_4.pth",),
+        pretrained="./ckpts/best_iou_635_4.pth",),
     pts_neck = dict(
         type='CustomFPN',
         in_channels=[256, 256],
@@ -147,7 +147,7 @@ model = dict(
 
 # Data
 dataset_type = 'NuScenesDatasetOccpancy'
-data_root = '/media/wj-hust/deeplearning/dzp/seg_dataset/nuscenes/'
+data_root = './data/nuscenes/'
 file_client_args = dict(backend='disk')
 
 bda_aug_conf = dict(
@@ -272,7 +272,7 @@ custom_hooks = [
     ),
 ]
 
-load_from = "/media/wj-hust/deeplearning/dzp/FlashOCC-master/ckpts/bevdet-r50-4d-stereo-cbgs.pth"
+load_from = "./ckpts/bevdet-r50-4d-stereo-cbgs.pth"
 # fp16 = dict(loss_scale='dynamic')
 evaluation = dict(interval=1, start=20, pipeline=test_pipeline,save_best='mIoU',rule='greater',)
 checkpoint_config = dict(interval=1, max_keep_ckpts=3)

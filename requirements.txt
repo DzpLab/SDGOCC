@@ -43,8 +43,8 @@ fastjsonschema==2.20.0
 filelock==3.16.1
 fire==0.5.0
 flake8==7.0.0
-# Editable install with no version control (flashocc-plugin==0.0.0)
--e /media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN/projects
+# Editable install with no version control (sdgocc_plugin==0.0.0)
+-e ./projects
 Flask==3.0.3
 fonttools==4.49.0
 fqdn==1.5.1

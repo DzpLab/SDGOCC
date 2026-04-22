@@ -33,10 +33,10 @@ except ImportError:
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
-    parser.add_argument('--config',default="/media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN3/projects/configs/flashocc/flashocc-r50_8.py", help='train config file path')
-    parser.add_argument('--work-dir',default="/media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN3/work_dir/r50_fuse_018_1e4", help='the dir to save logs and models')
+    parser.add_argument('--config',default="projects/configs/sdgocc/sdgocc-r50_4.py", help='train config file path')
+    parser.add_argument('--work-dir',default="./work_dirs/sdgocc_r50_4", help='the dir to save logs and models')
     parser.add_argument(
-        '--resume-from',default="/media/wj-hust/deeplearning/dzp/SADA_OCC_ALIGN3/work_dir/r50_fuse_018_1e4/epoch_36.pth",help='the checkpoint file to resume from')
+        '--resume-from',default="./ckpts/best_iou_635_4.pth",help='the checkpoint file to resume from')
     parser.add_argument(
         '--auto-resume',
         action='store_true',

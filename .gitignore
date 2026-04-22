@@ -1,0 +1,11 @@
+.vscode/
+ckpts/
+data
+data/
+mmdetection3d/
+projects/build
+projects/natten/src/build
+projects/natten/src/*.so
+projects/mmdet3d_plugin
+pycache/
+*.pyc

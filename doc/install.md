@@ -1,8 +1,8 @@
-## Environment Setup
-step 1. Install environment for pytorch training
+## Environment Setup (Follow FlashOcc setup)
+step 1. Install environment for pytorch training 
 ```
-conda create --name FlashOcc python=3.8.5
-conda activate FlashOcc
+conda create --name SDGOCC python=3.8.5
+conda activate SDGOCC
 pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 pip install mmcv-full==1.5.3
 pip install mmdet==2.25.1
@@ -28,27 +28,38 @@ pip install trimesh==2.35.39
 pip install setuptools==59.5.0
 pip install yapf==0.40.1
 
-cd Path_to_FlashOcc
-git clone git@github.com:Yzichen/FlashOCC.git
+TORCH=$(python -c "import torch; print(torch.__version__.split('+')[0])")
+CUDA=$(python -c "import torch; print(torch.version.cuda.replace('.',''))")
 
-cd Path_to_FlashOcc/FlashOcc
-git clone https://github.com/open-mmlab/mmdetection3d.git
+pip install torch-scatter -f https://data.pyg.org/whl/torch-${TORCH}+cu${CUDA}.html
 
-cd Path_to_FlashOcc/FlashOcc/mmdetection3d
+pip install --no-deps timm==1.0.9
+pip install --no-deps einops==0.8.0 prettytable==3.10.0
+```
+
+step 2. Clone and install repositories
+```
+cd Path_to_SDGOCC
+git clone git@github.com:Hachimi-Manbo/SDGOCC.git
+
+cd Path_to_SDGOCC/SDGOCC
+git clone git@github.com:open-mmlab/mmdetection3d.git
+
+cd Path_to_SDGOCC/SDGOCC/mmdetection3d
 git checkout v1.0.0rc4
 pip install -v -e . 
 
-cd Path_to_FlashOcc/FlashOcc/projects
+cd Path_to_SDGOCC/SDGOCC/projects
 pip install -v -e . 
 ```
 
-step 3. Prepare nuScenes dataset as introduced in [nuscenes_det.md](docs/en/datasets/nuscenes_det.md) and create the pkl for FlashOCC by running:
+step 3. Prepare nuScenes dataset as introduced in [nuscenes_det.md](docs/en/datasets/nuscenes_det.md) and create the pkl for SDGOCC by running:
 ```shell
 python tools/create_data_bevdet.py
 ```
 thus, the folder will be ranged as following:
 ```shell script
-└── Path_to_FlashOcc/
+└── Path_to_SDGOCC/
     └── data
         └── nuscenes
             ├── v1.0-trainval (existing)

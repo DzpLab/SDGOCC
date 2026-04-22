@@ -101,7 +101,7 @@ def nuscenes_data_prep(root_path, info_prefix, version, max_sweeps=10):
 
 def add_ann_adj_info(extra_tag):
     nuscenes_version = 'v1.0-trainval'
-    dataroot = '/media/aiboy/DeepLearn/dataset/nuscenes/'
+    dataroot = './data/nuscenes/'
     nuscenes = NuScenes(nuscenes_version, dataroot)
     for set in ['train', 'val']:
         dataset = pickle.load(
@@ -137,7 +137,7 @@ if __name__ == '__main__':
     dataset = 'nuscenes'
     version = 'v1.0'
     train_version = f'{version}-trainval'
-    root_path = '/media/aiboy/DeepLearn/dataset/nuscenes'
+    root_path = './data/nuscenes'
     extra_tag = 'bevdetv2-nuscenes'
     nuscenes_data_prep(
         root_path=root_path,
